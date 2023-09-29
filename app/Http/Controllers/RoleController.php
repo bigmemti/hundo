@@ -13,7 +13,11 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        $roles = Role::all(['id','name','created_at']);
+
+        return inertia('Role/Index', [
+            'roles' => $roles,
+        ]);
     }
 
     /**
@@ -21,7 +25,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return inertia('Role/Create');
     }
 
     /**
@@ -29,7 +33,9 @@ class RoleController extends Controller
      */
     public function store(StoreRoleRequest $request)
     {
-        //
+        Role::create($request->validated());
+
+        return to_route('role.index');
     }
 
     /**
@@ -37,7 +43,9 @@ class RoleController extends Controller
      */
     public function show(Role $role)
     {
-        //
+        return inertia('Role/Show', [
+            'role' => $role
+        ]);
     }
 
     /**
@@ -45,7 +53,9 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        //
+        return inertia('Role/Edit', [
+            'role' => $role
+        ]);
     }
 
     /**
@@ -53,7 +63,9 @@ class RoleController extends Controller
      */
     public function update(UpdateRoleRequest $request, Role $role)
     {
-        //
+        $role->update($request->validated());
+
+        return to_route('role.index');
     }
 
     /**
@@ -61,6 +73,8 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+        $role->delete();
+
+        return to_route('role.index');
     }
 }

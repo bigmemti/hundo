@@ -2,9 +2,9 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 
-    const form = useForm({});
+const form = useForm({});
 defineProps({
-    user : Object
+    role : Object
 })
 
 const options = {
@@ -33,37 +33,25 @@ const options = {
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         <div class="flex flex-col">
                             <p>Id:</p>
-                            <span>{{user.id}}</span>
+                            <span>{{role.id}}</span>
                         </div>
                         <div class="flex flex-col">
                             <p>Name:</p>
-                            <span>{{user.name}}</span>
-                        </div>
-                        <div class="flex flex-col">
-                            <p>Email:</p>
-                            <span>{{user.email}}</span>
-                        </div>
-                        <div class="flex flex-col">
-                            <p>Verify Email At:</p>
-                            <span>{{user.verify_email_at ? user.verify_email_at : 'null'}}</span>
+                            <span>{{role.name}}</span>
                         </div>
                         <div class="flex flex-col">
                             <p>Created At:</p>
-                            <span>{{user.created_at}}</span>
+                            <span>{{role.created_at}}</span>
                         </div>
                         <div class="flex flex-col">
                             <p>Updated At:</p>
-                            <span>{{user.updated_at}}</span>
-                        </div>
-                        <div class="flex flex-col">
-                            <p>Deleted At:</p>
-                            <span>{{user.deleted_at ? user.deleted_at : 'null'}}</span>
+                            <span>{{role.updated_at}}</span>
                         </div>
                         <div class="flex gap-4 mt-4">
-                            <Link :href="route('user.edit', [user.id])" class="rounded-2xl px-4 py-2 bg-yellow-800 hover:bg-yellow-600">
+                           <Link :href="route('role.edit', [role.id])" class="rounded-2xl px-4 py-2 bg-yellow-800 hover:bg-yellow-600">
                                 <icon icon="fa-solid fa-edit"  /> edit
                             </Link>
-                            <button @click="$swal.fire(options).then((result) => (result.isConfirmed)? form.delete(route('user.destroy', [user.id])) : null)" class="rounded-2xl px-4 py-2 bg-red-800 hover:bg-red-600">
+                            <button @click="$swal.fire(options).then((result) => (result.isConfirmed)? form.delete(route('role.destroy', [role.id])) : null)" class="rounded-2xl px-4 py-2 bg-red-800 hover:bg-red-600">
                                 <icon icon="fa-solid fa-trash" /> delete
                             </button>
                         </div>
