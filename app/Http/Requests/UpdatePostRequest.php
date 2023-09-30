@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Category;
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdatePostRequest extends FormRequest
@@ -11,7 +13,7 @@ class UpdatePostRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +24,10 @@ class UpdatePostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' =>'string|min:4|max:255',
+            'category_id' => ['numeric','required', Rule::in(Category::all(['id'])->pluck('id')->toArray())],
+            'image'=> 'image|mimes:png,jpg,jpeg|max:2048|nullable',
+            'body' => 'string|min:40|max:1000'
         ];
     }
 }

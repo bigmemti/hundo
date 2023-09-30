@@ -44,8 +44,11 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+        $posts = $user->posts()->limit(5)->get()->load(['category']);
+
         return inertia('User/Show', [
-            'user' => $user
+            'user' => $user,
+            'posts' => $posts
         ]);
     }
 

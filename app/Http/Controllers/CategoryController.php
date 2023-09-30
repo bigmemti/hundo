@@ -47,8 +47,11 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
+        $posts = $category->posts()->limit(5)->get()->load(['user']);
+
         return inertia('Category/Show', [
-            'category' => $category
+            'category' => $category,
+            'posts' => $posts
         ]);
     }
 
@@ -80,9 +83,12 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        $this->delete($category->image,'public');
-        $category->delete();
+        if (!$category->posts()->count()) {
+            $this->delete($category->image,'public');
+            $category->delete();
 
-        return to_route('category.index');
+            return to_route('category.index');
+        }
+        return back()->withErrors('this category have post.');
     }
 }

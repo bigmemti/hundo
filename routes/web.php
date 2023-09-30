@@ -1,12 +1,14 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PostListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +42,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('user', UserController::class);
     Route::resource('role', RoleController::class);
     Route::resource('category', CategoryController::class);
+    Route::resource('post',PostListController::class,['only'=>['index', 'create', 'store']]);
+    Route::resource('category.post', PostController::class)->shallow();
 });
 
 require __DIR__.'/auth.php';
