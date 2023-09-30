@@ -2,18 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Helper\ImageManager;
 use App\Models\Category;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 
 class CategoryController extends Controller
 {
+    use ImageManager;
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $categories = Category::all(['id','name','created_at']);
+
+        return inertia('Category/Index', [
+            'categories' => $categories,
+        ]);
     }
 
     /**
@@ -21,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return inertia('Category/Create');
     }
 
     /**
@@ -29,7 +35,11 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        //
+        $image = $this->upload($request->image, 'public', 'category')['file_path'];
+
+        Category::create([...$request->validated(), 'image' => $image]);
+
+        return to_route('category.index');
     }
 
     /**
@@ -37,7 +47,9 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return inertia('Category/Show', [
+            'category' => $category
+        ]);
     }
 
     /**
@@ -45,7 +57,9 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return inertia('Category/Edit', [
+            'category' => $category
+        ]);
     }
 
     /**
@@ -53,7 +67,12 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+
+        $image = $request->image !== null ? $this->swap($category->image, $request->image, 'public')['file_path'] : $category->image;
+
+        $category->update([...$request->validated(), 'image' => $image]);
+
+        return to_route('category.index');
     }
 
     /**
@@ -61,6 +80,9 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $this->delete($category->image,'public');
+        $category->delete();
+
+        return to_route('category.index');
     }
 }
