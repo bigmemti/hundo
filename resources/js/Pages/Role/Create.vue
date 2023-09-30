@@ -3,8 +3,6 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 const form = useForm({
     'name': '',
-    'email': '',
-    'password' : ''
 });
 defineProps(['errors'])
 </script>
@@ -29,7 +27,7 @@ defineProps(['errors'])
                                     {{ errors.name }}
                                 </div>
                             </div>
-                            
+
                             <div class="flex gap-4 mt-4">
                                 <button type="submit" class="px-4 py-2 bg-green-800 hover:bg-green-600 rounded-xl">
                                     Submit
