@@ -21,11 +21,11 @@ const options = {
 </script>
 
 <template>
-    <Head title="Users Show" />
+    <Head title="Category Show" />
 
      <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Users Show</h2>
+            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Category Show</h2>
         </template>
 
         <div class="py-12">

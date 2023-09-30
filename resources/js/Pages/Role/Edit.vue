@@ -9,11 +9,11 @@ const props = defineProps(['role','errors']);
 </script>
 
 <template>
-    <Head title="Users Create" />
+    <Head title="Role Create" />
 
      <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Users Edit</h2>
+            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Role Edit</h2>
         </template>
 
         <div class="py-12">
@@ -28,7 +28,7 @@ const props = defineProps(['role','errors']);
                                     {{ errors.name }}
                                 </div>
                             </div>
-                            
+
                             <div class="flex gap-4 mt-4">
                                 <button type="submit" class="px-4 py-2 bg-green-800 hover:bg-green-600 rounded-xl">
                                     Submit

@@ -12,11 +12,11 @@ const props = defineProps(['post','errors', 'categories'])
 </script>
 
 <template>
-    <Head title="Users Create" />
+    <Head title="Post Create" />
 
      <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Users Create</h2>
+            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Post Create</h2>
         </template>
 
         <div class="py-12">
