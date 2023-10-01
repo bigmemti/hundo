@@ -20,7 +20,7 @@ const props = defineProps(['role','errors']);
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900 dark:text-gray-100">
-                        <form @submit.prevent="form.put(route('role.update', [role.id]))">
+                        <form @submit.prevent="form.put(route('dashboard.role.update', [role.id]))">
                             <div class="flex flex-col">
                                 <label for="name">Name:</label>
                                 <input class="dark:bg-gray-800 dark:text-white" type="text" v-model="form.name" id="name">

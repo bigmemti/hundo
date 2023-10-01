@@ -36,7 +36,7 @@ class UserController extends Controller
     {
         User::create([...$request->validated(), 'password' => Hash::make($request->password)]);
 
-        return to_route('user.index');
+        return to_route('dashboard.user.index');
     }
 
     /**
@@ -69,7 +69,7 @@ class UserController extends Controller
     {
         $user->update([...$request->validated(), 'password' => Hash::make($request->password)]);
 
-        return to_route('user.index');
+        return to_route('dashboard.user.index');
     }
 
     /**
@@ -79,6 +79,6 @@ class UserController extends Controller
     {
         $user->delete();
 
-        return to_route('user.index');
+        return to_route('dashboard.user.index');
     }
 }

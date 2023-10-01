@@ -39,7 +39,7 @@ class CategoryController extends Controller
 
         Category::create([...$request->validated(), 'image' => $image]);
 
-        return to_route('category.index');
+        return to_route('dashboard.category.index');
     }
 
     /**
@@ -75,7 +75,7 @@ class CategoryController extends Controller
 
         $category->update([...$request->validated(), 'image' => $image]);
 
-        return to_route('category.index');
+        return to_route('dashboard.category.index');
     }
 
     /**
@@ -87,7 +87,7 @@ class CategoryController extends Controller
             $this->delete($category->image,'public');
             $category->delete();
 
-            return to_route('category.index');
+            return to_route('dashboard.category.index');
         }
         return back()->withErrors('this category have post.');
     }

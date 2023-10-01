@@ -42,6 +42,6 @@ class PostListController extends Controller
             'user_id' => auth()->user()->id
         ]);
 
-        return to_route('post.index');
+        return to_route('dashboard.post.index');
     }
 }

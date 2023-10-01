@@ -20,7 +20,7 @@ const showingNavigationDropdown = ref(false);
                         <div class="flex">
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
-                                <Link :href="route('dashboard')">
+                                <Link :href="route('home')">
                                     <ApplicationLogo
                                         class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200"
                                     />
@@ -32,16 +32,16 @@ const showingNavigationDropdown = ref(false);
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </NavLink>
-                                <NavLink :href="route('user.index')" :active="route().current('user.index')">
+                                <NavLink :href="route('dashboard.user.index')" :active="route().current('user.index')">
                                     Users
                                 </NavLink>
-                                <NavLink :href="route('role.index')" :active="route().current('role.index')">
+                                <NavLink :href="route('dashboard.role.index')" :active="route().current('role.index')">
                                     Roles
                                 </NavLink>
-                                <NavLink :href="route('category.index')" :active="route().current('category.index')">
+                                <NavLink :href="route('dashboard.category.index')" :active="route().current('category.index')">
                                     Categories
                                 </NavLink>
-                                <NavLink :href="route('post.index')" :active="route().current('post.index')">
+                                <NavLink :href="route('dashboard.post.index')" :active="route().current('post.index')">
                                     Posts
                                 </NavLink>
                             </div>
@@ -127,16 +127,16 @@ const showingNavigationDropdown = ref(false);
                         <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                             Dashboard
                         </ResponsiveNavLink>
-                        <ResponsiveNavLink :href="route('user.index')" :active="route().current('user.index')">
+                        <ResponsiveNavLink :href="route('dashboard.user.index')" :active="route().current('user.index')">
                             Users
                         </ResponsiveNavLink>
-                        <ResponsiveNavLink :href="route('role.index')" :active="route().current('role.index')">
+                        <ResponsiveNavLink :href="route('dashboard.role.index')" :active="route().current('role.index')">
                             Roles
                         </ResponsiveNavLink>
-                        <ResponsiveNavLink :href="route('category.index')" :active="route().current('category.index')">
+                        <ResponsiveNavLink :href="route('dashboard.category.index')" :active="route().current('category.index')">
                             Categories
                         </ResponsiveNavLink>
-                        <ResponsiveNavLink :href="route('post.index')" :active="route().current('post.index')">
+                        <ResponsiveNavLink :href="route('dashboard.post.index')" :active="route().current('post.index')">
                             Posts
                         </ResponsiveNavLink>
                     </div>

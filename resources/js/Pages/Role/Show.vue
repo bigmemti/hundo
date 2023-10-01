@@ -48,10 +48,10 @@ const options = {
                             <span>{{role.updated_at}}</span>
                         </div>
                         <div class="flex gap-4 mt-4">
-                           <Link :href="route('role.edit', [role.id])" class="rounded-2xl px-4 py-2 bg-yellow-800 hover:bg-yellow-600">
+                           <Link :href="route('dashboard.role.edit', [role.id])" class="rounded-2xl px-4 py-2 bg-yellow-800 hover:bg-yellow-600">
                                 <icon icon="fa-solid fa-edit"  /> edit
                             </Link>
-                            <button @click="$swal.fire(options).then((result) => (result.isConfirmed)? form.delete(route('role.destroy', [role.id])) : null)" class="rounded-2xl px-4 py-2 bg-red-800 hover:bg-red-600">
+                            <button @click="$swal.fire(options).then((result) => (result.isConfirmed)? form.delete(route('dashboard.role.destroy', [role.id])) : null)" class="rounded-2xl px-4 py-2 bg-red-800 hover:bg-red-600">
                                 <icon icon="fa-solid fa-trash" /> delete
                             </button>
                         </div>

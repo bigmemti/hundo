@@ -21,7 +21,7 @@ const props = defineProps(['category','errors'])
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900 dark:text-gray-100">
-                        <form @submit.prevent="router.post(route('category.update',[category.id]), form)">
+                        <form @submit.prevent="router.post(route('dashboard.category.update',[category.id]), form)">
                             <div class="flex flex-col">
                                 <label for="name">Name:</label>
                                 <input class="dark:bg-gray-800 dark:text-white" type="text" v-model="form.name" id="name">

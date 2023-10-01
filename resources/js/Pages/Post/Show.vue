@@ -41,11 +41,11 @@ const options = {
                         </div>
                         <div class="flex flex-col items-start">
                             <p>Author:</p>
-                            <Link class="px-4 py-2 my-2 bg-gray-900 hover:bg-gray-700 rounded-full" :href="route('user.show',[post.user_id])">{{post.user.name}}</Link>
+                            <Link class="px-4 py-2 my-2 bg-gray-900 hover:bg-gray-700 rounded-full" :href="route('dashboard.user.show',[post.user_id])">{{post.user.name}}</Link>
                         </div>
                         <div class="flex flex-col items-start">
                             <p>Category:</p>
-                            <Link class="px-4 py-2 my-2 bg-gray-900 hover:bg-gray-700 rounded-full" :href="route('category.show',[post.category_id])">{{post.category.name}}</Link>
+                            <Link class="px-4 py-2 my-2 bg-gray-900 hover:bg-gray-700 rounded-full" :href="route('dashboard.category.show',[post.category_id])">{{post.category.name}}</Link>
                         </div>
                         <div class="flex flex-col">
                             <p>Image:</p>
@@ -64,10 +64,10 @@ const options = {
                             <span>{{post.updated_at}}</span>
                         </div>
                         <div class="flex gap-4 mt-4">
-                           <Link :href="route('post.edit', [post.id])" class="rounded-2xl px-4 py-2 bg-yellow-800 hover:bg-yellow-600">
+                           <Link :href="route('dashboard.post.edit', [post.id])" class="rounded-2xl px-4 py-2 bg-yellow-800 hover:bg-yellow-600">
                                 <icon icon="fa-solid fa-edit"  /> edit
                             </Link>
-                            <button @click="$swal.fire(options).then((result) => (result.isConfirmed)? form.delete(route('post.destroy', [post.id])) : null)" class="rounded-2xl px-4 py-2 bg-red-800 hover:bg-red-600">
+                            <button @click="$swal.fire(options).then((result) => (result.isConfirmed)? form.delete(route('dashboard.post.destroy', [post.id])) : null)" class="rounded-2xl px-4 py-2 bg-red-800 hover:bg-red-600">
                                 <icon icon="fa-solid fa-trash" /> delete
                             </button>
                         </div>

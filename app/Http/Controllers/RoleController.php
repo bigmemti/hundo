@@ -35,7 +35,7 @@ class RoleController extends Controller
     {
         Role::create($request->validated());
 
-        return to_route('role.index');
+        return to_route('dashboard.role.index');
     }
 
     /**
@@ -65,7 +65,7 @@ class RoleController extends Controller
     {
         $role->update($request->validated());
 
-        return to_route('role.index');
+        return to_route('dashboard.role.index');
     }
 
     /**
@@ -75,6 +75,6 @@ class RoleController extends Controller
     {
         $role->delete();
 
-        return to_route('role.index');
+        return to_route('dashboard.role.index');
     }
 }

@@ -48,7 +48,7 @@ class PostController extends Controller
             'user_id' => auth()->user()->id
         ]);
 
-        return to_route('category.post.index', ['category' => $category]);
+        return to_route('dashboard.category.post.index', ['category' => $category]);
     }
 
     /**
@@ -83,7 +83,7 @@ class PostController extends Controller
 
         $post->update([...$request->validated(), 'image' => $image]);
 
-        return to_route('category.post.index', ['category' => $post->category_id]);
+        return to_route('dashboard.category.post.index', ['category' => $post->category_id]);
     }
 
     /**
@@ -94,6 +94,6 @@ class PostController extends Controller
         $this->delete($post->image,'public');
         $post->delete();
 
-        return to_route('category.post.index', ['category' => $post->category_id]);
+        return to_route('dashboard.category.post.index', ['category' => $post->category_id]);
     }
 }
