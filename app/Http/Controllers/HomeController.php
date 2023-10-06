@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 class HomeController extends Controller
 {
     public function index(){
-        $posts = Post::all()->load(['category', 'user'])->loadCount('comments');
+        $posts = Post::latest()->limit(4)->get()->load(['category', 'user'])->loadCount('comments');
 
         return Inertia::render('Home/Welcome', [
             'posts' => $posts,

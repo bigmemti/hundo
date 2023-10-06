@@ -1,18 +1,9 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
-import PostShow from '@/Components/PostShow.vue';
+import Section from '@/Components/Section.vue';
+import PostCard from '@/Components/PostCard.vue';
 
-defineProps({
-    canLogin: {
-        type: Boolean,
-    },
-    canRegister: {
-        type: Boolean,
-    },
-    posts : {
-        type : Object
-    }
-});
+defineProps(['canLogin','canRegister','posts']);
 </script>
 
 <template>
@@ -21,12 +12,50 @@ defineProps({
     <div class="min-h-screen bg-dots-darker bg-center bg-[#ecf0f1] dark:bg-gray-900 selection:bg-red-500 selection:text-white">
         <!-- <header></header> -->
         <main class="container pt-3">
-            <div class="bg-white p-3 flex flex-col">
-                <PostShow :posts="posts">
-                    <template #header>
-                        Latest News
-                    </template>
-                </PostShow>
+            <div class=" p-3 flex flex-col lg:grid lg:grid-cols-[8fr,4fr] gap-4">
+                <section class="flex flex-col gap-5">
+                    <Section>
+                        <template #header>
+                            Latest News
+                        </template>
+                        <PostCard v-for="post in posts" :key="post.id" :post="post" />
+                    </Section>
+                    <Section>
+                        <template #header>
+                            Popular Posts
+                        </template>
+                        <PostCard v-for="post in posts" :key="post.id" :post="post" />
+                    </Section>
+                    <Section>
+                        <template #header>
+                            Relavent Stories
+                        </template>
+                        <PostCard v-for="post in posts" :key="post.id" :post="post" />
+                    </Section>
+                </section>
+                <section>
+                    <Section>
+                        <template #header>
+                            Editor’s Pick
+                        </template>
+                    </Section>
+                    <Section>
+                        <template #header>
+                            Newsletter
+                        </template>
+                    </Section>
+                    <Section>
+                        <template #header>
+                            Most Popular
+                        </template>
+                    </Section>
+                    <Section>
+                        <template #header>
+                            Social Networks
+                        </template>
+                    </Section>
+
+                </section>
             </div>
         </main>
         <!-- <footer></footer> -->

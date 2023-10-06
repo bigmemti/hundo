@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostListController;
+use App\Http\Controllers\Client\PostController as ClientPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,5 +41,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('category.post', PostController::class)->shallow();
     });
 });
+
+Route::resource('post', ClientPostController::class);
 
 require __DIR__.'/auth.php';
