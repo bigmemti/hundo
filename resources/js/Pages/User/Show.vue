@@ -77,11 +77,13 @@ const options = {
                             </p>
                             <table>
                                 <thead>
-                                    <th>Id</th>
-                                    <th>Title</th>
-                                    <th>Author</th>
-                                    <th>Created At</th>
-                                    <th>Actions</th>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Title</th>
+                                        <th>Author</th>
+                                        <th>Created At</th>
+                                        <th>Actions</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     <tr v-for="post in posts" :key="post.id">
