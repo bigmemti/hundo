@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Comment;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreCommentRequest extends FormRequest
 {
@@ -11,7 +13,7 @@ class StoreCommentRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +24,8 @@ class StoreCommentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'message' => 'required|max:1024|min:5|ascii',
+            'comment_id' => ['nullable','numeric', Rule::in(Comment::where('comment_id', null)->get('id')->pluck('id'))]
         ];
     }
 }

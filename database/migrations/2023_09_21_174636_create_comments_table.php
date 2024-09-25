@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\Schema;
@@ -17,6 +18,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class)->constrained();
             $table->foreignIdFor(Post::class)->constrained();
+            $table->foreignIdFor(Comment::class)->nullable()->constrained();
             $table->text('message');
             $table->timestamps();
         });
