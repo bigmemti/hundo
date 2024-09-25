@@ -4,12 +4,12 @@ import Section from '@/Components/Section.vue';
 import PostCard from '@/Components/PostCard.vue';
 import LandingLayout from '@/Layouts/LandingLayout.vue';
 
-defineProps(['canLogin','canRegister','posts']);
+defineProps(['posts']);
 </script>
 
 <template>
     <Head title="Welcome" />
-    <LandingLayout :canLogin="canLogin" :canRegister="canRegister">
+    <LandingLayout>
         <section class="flex flex-col gap-5">
             <Section>
                 <template #header>

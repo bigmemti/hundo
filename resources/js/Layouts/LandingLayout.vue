@@ -2,12 +2,17 @@
 import { Link } from '@inertiajs/vue3';
 import Section from '@/Components/Section.vue';
 
-defineProps(['canLogin','canRegister']);
 </script>
 
 <template>
-    <header>
-        <div v-if="canLogin" class="p-6 text-right container">
+    <header class="flex justify-between container items-center">
+        <div>
+            <h1 class="text-2xl font-bold">
+                <icon :icon="['fab', 'blogger']" />
+                HUNDO
+            </h1>
+        </div>
+        <div v-if="$page.props.canLogin" class="p-6 text-right ">
             <Link
                 v-if="$page.props.auth.user"
                 :href="route('dashboard')"
@@ -23,7 +28,7 @@ defineProps(['canLogin','canRegister']);
                 >
 
                 <Link
-                    v-if="canRegister"
+                    v-if="$page.props.canRegister"
                     :href="route('register')"
                     class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                     >Register</Link
