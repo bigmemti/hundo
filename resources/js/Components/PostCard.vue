@@ -1,4 +1,5 @@
 <script setup>
+import {Link} from '@inertiajs/vue3';
 
 defineProps(['post'])
 </script>
@@ -6,8 +7,8 @@ defineProps(['post'])
 <template>
     <article class="mb-8 lg:gap-2 lg:items-center lg:grid lg:grid-cols-[5fr,7fr]">
         <header class="relative overflow-hidden">
-            <img class="z-0 lg:w-64 relative hover:scale-110 brightness-50 hover:brightness-75 transition-all duration-150" :src="'./storage/' + post.image" alt="">
-            <a href="#" class="z-10 absolute bottom-3 left-3 lg:text-xs bg-red-600 text-white p-1 px-4">{{ post.category.name }}</a>
+            <img class="z-0 lg:w-64 relative hover:scale-110 brightness-50 hover:brightness-75 transition-all duration-150" :src="'/storage/' + post.image" alt="">
+            <Link :href="route('category.show', [post.category.id])" class="z-10 absolute bottom-3 left-3 lg:text-xs bg-red-600 text-white p-1 px-4">{{ post.category.name }}</Link>
         </header>
         <main class="mt-3 flex flex-col gap-3">
             <h3 class="text-xl font-bold ">
